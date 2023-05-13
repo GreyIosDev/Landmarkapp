@@ -17,6 +17,14 @@ struct Landmark: Hashable, Codable, Identifiable {// Codable makes it easier to 
     var state: String
     var description: String
     var isFavorite: Bool
+    var isFeatured: Bool
+    
+    var category: Category
+       enum Category: String, CaseIterable, Codable {
+           case lakes = "Lakes"
+           case rivers = "Rivers"
+           case mountains = "Mountains"
+       }
     
     private var imageName: String // we use "private" to make sure that only certain parts of our code can see and use a particular thing, like a button or a label. This helps keep our code organized and makes sure that everything works the way it's supposed to.  Just like how you might have a special toy that you only share with your best friend, in SwiftUI we use "private" to keep certain things special and just for our code to use.
         var image: Image {
